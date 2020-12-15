@@ -2,18 +2,22 @@ sudo apt-get update
 sudo apt install docker.io
 docker --version
 
+To check the status
 sudo systemctl status docker
 
-sudo systemctl enable --now docker   (First time)
+First time we need to enable
+sudo systemctl enable --now docker
 
+To Start - Next time
 sudo systemctl start docker
 
+To Stop
 sudo systemctl stop docker
 
 
 
 
-Create own container!
+Create own sample image!
 
 Dockerfile:
 
@@ -32,8 +36,8 @@ COPY file.txt /opt/file
 
 sudo docker build . -t my-test
 
-To tag and upload to Hub
 
+To tag and upload to Hub
 
 May need while pushing, just give uname &pwd (murthidn & Murthi@19..)
 docker login
