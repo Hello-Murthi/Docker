@@ -37,6 +37,43 @@ So docker manages it's containers' OS level activities with Hardware
 Docker is an OS level virtualization!!!
 It's not OS but does all OS things with Hardware
 
+Docker utilizes kernel to do all
+
+Why you can't run Windows container on Linux based Host OS?
+When you take the VM with linux kernel, will be able to run only linux related distributions
+So if you wanna run windows container, need to install docker on Windows server, so matches with same kernel, since Docker shares with same kernel!!!
+
+
+
+
+Main Purpose of Docker?
+Is to Package and Containerize applications, ship and run them anywhere, anytime, as many times as we want wit less resource consumptions
+
+
+
+On Hypervisor you can run any OS, why? but why you can not run windows container on Linux Host OS? but you can run Linux containers on windows, how?
+
+Ans:
+
+Hypervisor Arch:
+
+{
+[Apps, dependencies, libraries]  |  [Apps, dependencies, libraries]
+OS								 |   OS
+
+Hypervisor
+
+Host OS
+
+Hardware
+
+}
+
+So here each VM has it's own OS they don't rely on Host OS, HOST OS is just running Hypervisor, but Each VM's OS runs on Hardware since it has it's own OS
+So you can run any OS on Hypervisor!
+
+But in containers, there is no concept of OS
+
 
 What is Docker Container?
 Is a light weight software package that includes all dependencies (libraries/binaries) required to execute Apps
