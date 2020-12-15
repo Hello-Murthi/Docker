@@ -1,0 +1,50 @@
+sudo apt-get update
+sudo apt install docker.io
+docker --version
+
+sudo systemctl status docker
+
+sudo systemctl enable --now docker   (First time)
+
+sudo systemctl start docker
+
+sudo systemctl stop docker
+
+
+
+
+Create own container!
+
+Dockerfile:
+
+FROM ubuntu
+
+RUN apt update
+RUN yes | apt install git
+RUN git --version
+
+
+COPY file.txt /opt/file
+
+
+
+
+
+sudo docker build . -t my-test
+
+To tag and upload to Hub
+
+
+May need while pushing, just give uname &pwd (murthidn & Murthi@19..)
+docker login
+
+sudo docker build . -t murthidn/my-test
+sudo docker push murthidn/my-test
+
+
+To get in container
+sudo docker run -it my-test bash
+
+
+
+
