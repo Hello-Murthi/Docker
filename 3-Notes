@@ -1,0 +1,183 @@
+Installation:
+
+sudo apt-get update
+sudo apt install docker.io
+docker --version
+
+sudo systemctl status docker
+sudo systemctl enable --now docker   (First time)
+sudo systemctl start docker
+sudo systemctl stop docker
+
+
+
+
+Basic cmds:
+---------------------
+
+docker ps
+
+docker ps -a
+
+docker images
+
+
+docker stop c-id
+
+docker start c-id
+
+docker rm c-id
+
+docker rmi image-name
+
+
+docker pull image
+
+docker run image
+
+docker run image sleep 100
+
+sudo docker run -d image sleep 100
+
+sudo docker attach c-id
+
+docker run -it image bash
+
+
+
+
+Custom Images:
+---------------------
+
+Dockerfile
+
+sudo docker build .
+
+sudo docker build . -t test-image
+
+sudo docker build . -t murthidn/test-image1
+
+dcocker push
+
+
+sudo docker login
+
+
+
+Port Mapping
+---------------------
+
+sudo docker run -p 2020:8080 jenkins
+sudo docker inspect c-id
+
+sudo docker run -p 2020:5000 murthidn/simple-webapp
+
+
+
+Environment Variables:
+---------------------
+docker run -e COLOR=red image
+
+
+
+Docker Compose:
+---------------------
+When we need to set up complex applications which is running multiple service, better to use Docker Compose
+With a single command, you create and start all the services from your configuration
+
+Ex:
+docker run mongodb
+docker run redis
+docker run ansible
+
+
+
+docker-compose.yml
+
+services:
+	database:
+			image: mongodb
+	messaging:
+			image: redis
+			ports:
+				- 5000:80
+			links:
+				- anisble
+	orchestration:
+			image: ansible
+
+
+
+docker-compose up
+
+
+Storage: File System
+---------------------
+/var/lib/docker
+	- container
+	- images
+
+
+Layered Architecture
+---------------------
+Each line of dockerfile is a layer
+Each layer is cached
+
+
+
+Docker Network
+---------------------
+3 Networks automatically
+	1. Bridge
+	2. None
+	3. Host
+
+
+
+Bridge - Default network
+---------------------
+
+Custom Network
+docker run ubuntu --network=host
+
+
+* Bridge NW is Private Internal NW on Docker Host
+* All container will get attached with an internal IP
+* To access these containers from outside, need port mapping 
+
+
+Host Network
+---------------------
+When we associate containers to Host Network
+No need any port mapping
+
+
+
+None Network
+---------------------
+Containers are not attached to any network
+Doesn't have access to external network/other containers
+
+
+Default IP:
+---------------------
+172.17.0.2 - series
+
+
+
+
+User Defined Network
+---------------------
+To isolate containers in our own network
+
+docker network create
+
+
+
+Container Orchestration
+---------------------
+For a best performance of apps on High Load
+
+High Availability
+Load Balancing
+

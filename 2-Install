@@ -42,8 +42,8 @@ To tag and upload to Hub
 May need while pushing, just give uname &pwd (murthidn & Murthi@19..)
 docker login
 
-sudo docker build . -t murthidn/my-test
-sudo docker push murthidn/my-test
+sudo docker build . -t murthidn/go-test
+sudo docker push murthidn/go-test
 
 
 To get in container
