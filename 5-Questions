@@ -1,0 +1,130 @@
+
+What is a Container?
+
+	* A container is a standard unit of software bundled with dependencies so that applications can be deployed fast and reliably
+
+
+What are docker images?
+
+	* They are executable packages(bundled with application code & dependencies, software packages, etc.) for the purpose of creating containers
+
+
+What is a DockerFile?
+	* It is a text file that has all commands which need to be run for building a given image.
+
+
+What is Docker Compose?
+	
+	* It is a YAML file consisting of all the details regarding various services, networks, and volumes that are needed for setting up the Docker-based application.
+
+	* Used for creating multiple containers, host them and establish communication between them.
+
+	* For the purpose of communication amongst the containers, ports are exposed by each and every container
+
+
+Command to list status of all docker containers?
+
+	* docker ps -a
+
+
+How many Docker components are there?
+
+3 docker components
+
+	Docker Client
+	Docker Host 
+	Docker Registry
+
+Docker Client: Performs “build” and “run” operations for the purpose of opening communication with the docker host.
+
+Docker Host: Hhas the main docker daemon and hosts containers and their associated images. 
+			 The daemon establishes a connection with the docker registry.
+
+Docker Registry: Stores the docker images. There can be a public registry or a private one. 
+
+
+What is a Docker Hub?
+	
+	* It is a public cloud-based registry provided by Docker for storing public images of the containers
+
+
+Can a paused container be removed from Docker?
+	
+	* No, it is not possible! A container MUST be in the stopped state before we can remove 
+
+
+Layer
+
+	* Each layer corresponds to an instruction of the image’s Dockerfile. In simple words, the layer is also an image but it is the image of the instructions run.
+
+
+What is the purpose of the volume parameter in a docker run command?
+
+	* he volume parameter is used for syncing a directory of a container with any of the host directories. 
+
+
+Where are docker volumes stored in docker?
+	
+	* Volumes are created and managed by Docker and cannot be accessed by non-docker entities. They are stored in Docker host filesystem at /var/lib/docker/volumes/
+
+
+What is docker info command ?
+	
+	* The command gets detailed information about Docker installed on the host system.
+
+
+Lifecycle of Docker Container?
+
+	* Created
+	* Running
+	* Paused
+	* Stopped
+	* Deleted
+
+
+Explain Docker Architecture?
+	
+	Docker Architecture consists of a Docker Engine which is a client-server application with three major components:
+
+	A server which is a type of long-running program called a daemon process (the docker command).
+	A REST API which specifies interfaces that programs can use to talk to the daemon and instruct it what to do.
+	A command line interface (CLI) client (the docker command).
+	The CLI uses the Docker REST API to control or interact with the Docker daemon through scripting or direct CLI commands. Many other Docker applications use the underlying API and CLI.
+
+
+How to get the number of containers running, paused and stopped?
+
+	* docker info
+
+
+Can a container restart by itself?
+
+	* No, it’s not possible for a container to restart by itself. By default the flag -restart is set to false.
+
+
+How will you monitor Docker in production?
+
+	* Docker provides functionalities like docker stats and docker events to monitor docker in production. 
+	* Docker stats provides CPU and memory usage of the container. 
+	* Docker events provide information about the activities taking place in the docker daemon.
+
+
+What are the main drawbacks of Docker?
+
+	Doesn’t provide a storage option
+	Offer a poor monitoring option.
+	No automatic rescheduling of inactive Nodes
+	Complicated automatic horizontal scaling set up
+
+
+There are two types of registry is
+
+	Public Registry
+	Private Registry
+
+
+Explain Docker Swarm?
+
+	* Docker Swarm is native gathering for docker which helps you to a group of Docker hosts into a single and virtual docker host
+
+
