@@ -1,54 +1,54 @@
+
+-------------------------------------------------------------------------
+
 sudo apt-get update
 sudo apt install docker.io
 docker --version
 
-To check the status
+-------------------------------------------------------------------------
+
+To check the status:
+
 sudo systemctl status docker
 
-First time we need to enable
+-------------------------------------------------------------------------
+
+First time we need to enable:
+
 sudo systemctl enable --now docker
 
-To Start - Next time
+-------------------------------------------------------------------------
+
+To Start:
+
 sudo systemctl start docker
 
-To Stop
+-------------------------------------------------------------------------
+
+To Stop:
+
 sudo systemctl stop docker
 
+-------------------------------------------------------------------------
 
+docker build . -t image-name
 
+-------------------------------------------------------------------------
 
-Create own sample image!
+To tag and upload to Hub:
 
-Dockerfile:
-
-FROM ubuntu
-
-RUN apt update
-RUN yes | apt install git
-RUN git --version
-
-
-COPY file.txt /opt/file
-
-
-
-
-
-sudo docker build . -t my-test
-
-
-To tag and upload to Hub
-
-May need while pushing, just give uname &pwd (murthidn & Murthi@19..)
 docker login
 
-sudo docker build . -t murthidn/go-test
-sudo docker push murthidn/go-test
+-------------------------------------------------------------------------
 
+docker build . -t murthidn/go-test
 
-To get in container
-sudo docker run -it my-test bash
+docker push murthidn/go-test
 
+-------------------------------------------------------------------------
 
+To get in container:
 
+docker run -it my-test bash
 
+-------------------------------------------------------------------------

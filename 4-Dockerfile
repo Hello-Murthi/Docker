@@ -1,110 +1,126 @@
 
+-------------------------------------------------------------------------
+
 # Comment
 INSTRUCTION Arguments
 
-
-
+-------------------------------------------------------------------------
 
 FROM ubuntu:18.04
 
-	* Creates a layer as base OS
+* Creates a layer as base OS
 
+-------------------------------------------------------------------------
 
 MAINTAINER murthi
 
-	* Declares the author field of the images
+* Declares the author field of the images
 
+-------------------------------------------------------------------------
 
 CMD python /file/file.py 
 
-	* Specifies what command to run within the container
+* Specifies what command to run within the container
 
+-------------------------------------------------------------------------
 
 ENTRYPOINT echo "Hello, $name"
 
-	* Allows specifying a command along with the parameters
+* Allows specifying a command along with the parameters
 
+-------------------------------------------------------------------------
 
-	Difference between CMD and ENTRYPOINT
+* Difference between CMD and ENTRYPOINT
 
-		* Both are same purpose but not similar in functionality
+Both are same purpose but not similar in functionality
 
-		Ex:
+Ex:
 
-			CMD "ping google.com"
-			ENTRYPOINT "ping google.com"
+	CMD "ping google.com"
+	ENTRYPOINT "ping google.com"
 
-			After building image and try to run both containers
-			docker run image date
+	After building image and try to run both containers
+	docker run image date
 
-			the last argument date will overide command in CMD
-			But in ENTRYPOINT, along with date ping keeps on happening
+	the last argument date will overide command in CMD
+	But in ENTRYPOINT, along with date ping keeps on happening
 
+-------------------------------------------------------------------------
 
 RUN apt-get update
 
-	* To run commands on top of current docker image (base image)
+* To run commands on top of current docker image (base image)
 
+-------------------------------------------------------------------------
 
 LABEL "ENV"="Dev"
 
-	* To specify metadata about image
+* To specify metadata about image
 
+-------------------------------------------------------------------------
 
 EXPOSE 80
 
-	* To specify Network port for Docker container
+* To specify Network port for Docker container
 
+-------------------------------------------------------------------------
 
 ENV value 1
 
-	* To set env variables, will be set during image build also available after container launch
+* To set env variables, will be set during image build also available after container launch
 
+-------------------------------------------------------------------------
 
 ARG value 1
 
-	* Also env var set but will be set only during image build not on container
+* Also env var set but will be set only during image build not on container
 
+-------------------------------------------------------------------------
 
 COPY source destination
 
-	* Helps in copying data into a Docker image
+* Helps in copying data into a Docker image
 
+-------------------------------------------------------------------------
 
 ADD source destination
 
-	* Same as ADD but also copies URLs and Extracts TAR files directly and copy them
+* Same as ADD but also copies URLs and Extracts TAR files directly and copy them
 
+-------------------------------------------------------------------------
 
 VOLUME /data
 
-	* To create or mount volume to docker container
+* To create or mount volume to docker container
 
+-------------------------------------------------------------------------
 
 USER admin
 
-	* To set user name, group name
+* To set user name, group name
 
+-------------------------------------------------------------------------
 
 WORKDIR /app
 
-	* To set working directory
+* To set working directory
 
+-------------------------------------------------------------------------
 
 SHELL ["/bin/bash", "-c", "echo hello"]
 
-	* To set the default shell
+* To set the default shell
 
+-------------------------------------------------------------------------
 
 .dockerignore
 
-	* To prevent copy local modules and other unwanted file being copied into Docker Image
+* To prevent copy local modules and other unwanted file being copied into Docker Image
 
+-------------------------------------------------------------------------
 
 PULL. /file
 
-	* Adds files from your Docker repository
+* Adds files from your Docker repository
 
-
-
-
+-------------------------------------------------------------------------

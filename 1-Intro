@@ -1,125 +1,107 @@
+
+-------------------------------------------------------------------------
+
 How docker born?
-Virtual Machine was taking lot of resources, couldn't handle much, so docker came
 
+* Virtual Machine was taking lot of resources, couldn't handle much, so docker came
 
-Docker Advantages
+-------------------------------------------------------------------------
 
-1. Memory
-	Doesn't require much memory, there is no concept of OS, but VMs take lot of RAM
+Advantages:
 
-	In VMs, when you give 10 GB RAM for a guest OS, and when that guest OS uses only 5 GB, remaining 5 GB can't be used by Host OS, so it may affect host OS
+1. Memory:
+	
+* Doesn't require much memory, there is no concept of OS, but VMs take lot of RAM
+* In VMs, when you give 10 GB RAM for a guest OS, and when that guest OS uses only 5 GB, remaining 5 GB can't be used by Host OS, so it may affect host OS
+* But, In docker, if you assign 10 GB for a container, if it uses 5 GB, it gives remaining 5 GB for host OS, then obviusly performance can be good with others
 
-	But, In docker, if you assign 10 GB for a container, if it uses 5 GB, it gives remaining 5 GB for host OS, then obviusly performance can be good with others
+2. Performance:
 
+* Since it takes less resource on host, gives good performance but VMs takes lot of resource on host then become less performance
+* Yes, bcz there is no unnecessary usage of resources
+* Hardware -> Host OS -> Docker Engine -> Containers
+* These containers are with light app OS apps anf binaries, it's not like OS, it's very light OS, does all OS functionalities with Docker engine help, docker engine takes care of talking to hardware
 
-2. Performance
-	Since it takes less resource on host, gives good performance but VMs takes lot of resource on host then become less performance
+3. Portability:
 
-	Yes, bcz there is no unnecessary usage of resources
-	Hardware -> Host OS -> Docker Engine -> Containers
-	These containers are with light app OS apps anf binaries, it's not like OS, it's very light OS, does all OS functionalities with Docker engine help, docker engine takes care of talking to hardware
+* Is good here, we can build our images and can create any no. of containers anywhere
+* The same VM may not work properly in other place, but in docker all software will be packaged and can be easily deployed in other side, by running images
 
+4. Bootability:
 
-3. Portability
-	Is good here, we can build our images and can create any no. of containers anywhere
+* VMs take lot of time to get started in minutes, but docker containers in seconds
 
-	The same VM may not work properly in other place, but in docker all software will be packaged and can be easily deployed in other side, by running images
-
-4. Bootability
-	VMs take lot of time to get started in minutes, but docker containers in seconds
-
-
-
-
+-------------------------------------------------------------------------
 
 What is Docker?
-So docker manages it's containers' OS level activities with Hardware
-Docker is an OS level virtualization!!!
-It's not OS but does all OS things with Hardware
 
-Docker utilizes kernel to do all
+* Docker is an OS level virtualization
+* Docker manages it's containers OS level activities with Hardware
+* It's not OS but does all OS things with Hardware
+* Docker utilizes kernel to do all
+
+-------------------------------------------------------------------------
 
 Why you can't run Windows container on Linux based Host OS?
-When you take the VM with linux kernel, will be able to run only linux related distributions
-So if you wanna run windows container, need to install docker on Windows server, so matches with same kernel, since Docker shares with same kernel!!!
 
+* When you take the VM with linux kernel, will be able to run only linux related distributions
+* So if you wanna run windows container, need to install docker on Windows server, so matches with same kernel, since Docker shares with same kernel
 
-
+-------------------------------------------------------------------------
 
 Main Purpose of Docker?
-Is to Package and Containerize applications, ship and run them anywhere, anytime, as many times as we want wit less resource consumptions
 
+* Is to Package, Containerize apps, ship and run anywhere, anytime, as many times as we want with less resource consumptions
 
+-------------------------------------------------------------------------
 
-On Hypervisor you can run any OS, why? but why you can not run windows container on Linux Host OS? but you can run Linux containers on windows, how?
+OS Architecture:
 
-Ans:
+Hardware -> Host OS -> Hypervisor -> [Apps, dependencies, libraries, OS]
 
-Hypervisor Arch:
+* Each VM has it's own OS they don't rely on Host OS
+* HOST OS is just running Hypervisor, but Each VM's OS runs on Hardware since it has it's own OS
+* But in containers, there is no concept of OS
 
-{
-[Apps, dependencies, libraries]  |  [Apps, dependencies, libraries]
-OS								 |   OS
-
-Hypervisor
-
-Host OS
-
-Hardware
-
-}
-
-So here each VM has it's own OS they don't rely on Host OS, HOST OS is just running Hypervisor, but Each VM's OS runs on Hardware since it has it's own OS
-So you can run any OS on Hypervisor!
-
-But in containers, there is no concept of OS
-
+-------------------------------------------------------------------------
 
 What is Docker Container?
-Is a light weight software package that includes all dependencies (libraries/binaries) required to execute Apps
 
+* Is a light weight software package that includes all dependencies (libraries/binaries) required to execute Apps
 
-
+-------------------------------------------------------------------------
 
 When you enter a command for Docker client, it sends to Docker Daemon via REST APIs, Daemon takes care of rest
+
+-------------------------------------------------------------------------
+
 Docker Host?
-Here docker Daemon and containers present
 
+* Here docker Daemon and containers present
 
+-------------------------------------------------------------------------
 
 Dockerfile -> images -> containers
 
-
-FROM
-Creates layer from a OS
-
-PULL
-Adds files from docker repositories
-
-RUN
-Builds container
-
-CMD
-What command to run in container
-
-
-
-
-
-
+-------------------------------------------------------------------------
 
 Docker compose?
-Lets say container 1 has Apache Websever, container 2 has SQL, but i need both, so i dont need to execure those 2 containers, directly i can compose both and make it use
 
+* Let's say container 1 has Apache Websever, container 2 has SQL, but i need both, so i dont need to execure those 2 containers, directly i can compose both and make it use
+
+-------------------------------------------------------------------------
 
 Docker Swarm?
-If i want to scale docker containers and need high availability then we need to orchastarte it by tools, so here we use Docker Swarm
+
+* Orchastration to scale docker containers and make high availability
+
+-------------------------------------------------------------------------
 
 Docker swarm has nodes, each node has it's own docker engine
 
-Manager Node
-Worker Node
+* Manager Node
+* Worker Node
 
-Manager node manages worker nodes
+Manager node, manages worker nodes
 
-
+-------------------------------------------------------------------------
