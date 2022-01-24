@@ -1,38 +1,6 @@
 
 -------------------------------------------------------------------------
 
-How docker born?
-
-* Virtual Machine was taking lot of resources, couldn't handle much, so docker came
-
--------------------------------------------------------------------------
-
-Advantages:
-
-1. Memory:
-	
-* Doesn't require much memory, there is no concept of OS, but VMs take lot of RAM
-* In VMs, when you give 10 GB RAM for a guest OS, and when that guest OS uses only 5 GB, remaining 5 GB can't be used by Host OS, so it may affect host OS
-* But, In docker, if you assign 10 GB for a container, if it uses 5 GB, it gives remaining 5 GB for host OS, then obviusly performance can be good with others
-
-2. Performance:
-
-* Since it takes less resource on host, gives good performance but VMs takes lot of resource on host then become less performance
-* Yes, bcz there is no unnecessary usage of resources
-* Hardware -> Host OS -> Docker Engine -> Containers
-* These containers are with light app OS apps anf binaries, it's not like OS, it's very light OS, does all OS functionalities with Docker engine help, docker engine takes care of talking to hardware
-
-3. Portability:
-
-* Is good here, we can build our images and can create any no. of containers anywhere
-* The same VM may not work properly in other place, but in docker all software will be packaged and can be easily deployed in other side, by running images
-
-4. Bootability:
-
-* VMs take lot of time to get started in minutes, but docker containers in seconds
-
--------------------------------------------------------------------------
-
 What is Docker?
 
 * Docker is an OS level virtualization
@@ -42,26 +10,27 @@ What is Docker?
 
 -------------------------------------------------------------------------
 
-Why you can't run Windows container on Linux based Host OS?
+Advantages:
 
-* When you take the VM with linux kernel, will be able to run only linux related distributions
-* So if you wanna run windows container, need to install docker on Windows server, so matches with same kernel, since Docker shares with same kernel
+1. Memory:
+	
+	* Doesn't require much memory, there is no concept of OS
+	* If you assign 10 GB for a container, it gives remaining 5 GB for host OS
+
+2. Performance:
+
+	* No unnecessary usage of resources
+	* Hardware -> Host OS -> Docker Engine -> Containers
+
+3. Portability:
+
+	* Build images and create any no. of containers, anywhere
 
 -------------------------------------------------------------------------
 
 Main Purpose of Docker?
 
 * Is to Package, Containerize apps, ship and run anywhere, anytime, as many times as we want with less resource consumptions
-
--------------------------------------------------------------------------
-
-OS Architecture:
-
-Hardware -> Host OS -> Hypervisor -> [Apps, dependencies, libraries, OS]
-
-* Each VM has it's own OS they don't rely on Host OS
-* HOST OS is just running Hypervisor, but Each VM's OS runs on Hardware since it has it's own OS
-* But in containers, there is no concept of OS
 
 -------------------------------------------------------------------------
 
