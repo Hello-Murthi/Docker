@@ -98,6 +98,10 @@ docker run ubuntu --network=host
 
 Host Network:
 
+* Container’s network is not isolated from the Docker host
+* Container shares the host’s network
+* Container does not get its own IP-address allocated. 
+* For Ex: if you run a container which binds to port 80 and you use host networking, the container’s application is available on port 80 on the host’s IP address.
 * No need any port mapping
 
 -------------------------------------------------------------------------
